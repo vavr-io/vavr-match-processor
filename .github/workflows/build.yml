@@ -18,6 +18,11 @@ jobs:
     name: Build with JDK ${{ matrix.java }} on ${{ matrix.architecture }}
     steps:
       - uses: actions/checkout@v4
+
+      # this is a temporary workaround until new Maven Central snapshot publishing is sorted out
+      - name: Build vavr-match snapshot
+        run: git clone https://github.com/vavr-io/vavr-match.git && mvn -f vavr-match/pom.xml install -DskipTests
+
       - name: Setup JDK
         uses: actions/setup-java@v4
         with:
