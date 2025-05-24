@@ -21,7 +21,7 @@ jobs:
 
       # this is a temporary workaround until new Maven Central snapshot publishing is sorted out
       - name: Build vavr-match snapshot
-        run: git clone git@github.com:vavr-io/vavr-match.git && mvn -f vavr-match/pom.xml install -DskipTests
+        run: git clone https://github.com/vavr-io/vavr-match.git && mvn -f vavr-match/pom.xml install -DskipTests
 
       - name: Setup JDK
         uses: actions/setup-java@v4
