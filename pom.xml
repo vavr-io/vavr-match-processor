@@ -24,15 +24,15 @@ We use these goals frequently to keep the dependencies and plugins up-to-date:
     </parent>
     <groupId>io.vavr</groupId>
     <artifactId>vavr-match-processor</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.11.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Vavr Match Annotation Processor</name>
     <description>Processor for structural pattern matching.</description>
-    <url>http://vavr.io</url>
+    <url>https://vavr.io</url>
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
@@ -44,6 +44,11 @@ We use these goals frequently to keep the dependencies and plugins up-to-date:
     </scm>
     <developers>
         <developer>
+            <id>pivovarit</id>
+            <name>Grzegorz Piwowarek</name>
+            <email>gpiwowarek@gmail.com</email>
+        </developer>
+        <developer>
             <id>danieldietrich</id>
             <name>Daniel Dietrich</name>
             <email>cafebab3@gmail.com</email>
@@ -51,10 +56,8 @@ We use these goals frequently to keep the dependencies and plugins up-to-date:
     </developers>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <assertj.core.version>3.12.2</assertj.core.version>
         <eclipse.lifecycle.mapping.version>1.0.0</eclipse.lifecycle.mapping.version>
         <java.version>1.8</java.version>
-        <junit.version>4.13-beta-3</junit.version>
         <maven.enforcer.version>3.0.0-M2</maven.enforcer.version>
         <maven.bundle.version>5.1.9</maven.bundle.version>
         <maven.install.version>3.1.4</maven.install.version>
@@ -74,16 +77,6 @@ We use these goals frequently to keep the dependencies and plugins up-to-date:
             <groupId>io.vavr</groupId>
             <artifactId>vavr-match</artifactId>
             <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>${assertj.core.version}</version>
         </dependency>
     </dependencies>
     <build>
