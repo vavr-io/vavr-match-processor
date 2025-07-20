@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.vavr</groupId>
     <artifactId>vavr-match-processor</artifactId>
-    <version>0.10.7</version>
+    <version>0.10.8-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Vavr Match Annotation Processor</name>
     <description>Processor for structural pattern matching.</description>
@@ -18,7 +18,7 @@
         <connection>scm:git:git@github.com:vavr-io/vavr-match-processor.git</connection>
         <developerConnection>scm:git:git@github.com:vavr-io/vavr-match-processor.git</developerConnection>
         <url>git@github.com:vavr-io/vavr-match-processor.git</url>
-        <tag>v0.10.7</tag>
+        <tag>HEAD</tag>
     </scm>
     <developers>
         <developer>
@@ -54,7 +54,7 @@
         <dependency>
             <groupId>io.vavr</groupId>
             <artifactId>vavr-match</artifactId>
-            <version>0.10.7</version>
+            <version>0.11.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
     <build>
