@@ -1,10 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>9</version>
-    </parent>
     <groupId>io.vavr</groupId>
     <artifactId>vavr-match-processor</artifactId>
     <version>0.11.0-SNAPSHOT</version>
@@ -152,25 +148,25 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>${maven.jar.version}</version>
-                <configuration>
-                    <skipIfEmpty>true</skipIfEmpty>
-                    <archive>
-                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-                        <manifestEntries>
-                            <Automatic-Module-Name>io.vavr.match.processor</Automatic-Module-Name>
-                        </manifestEntries>
-                    </archive>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>${maven.javadoc.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
-                    <!-- fix for https://bugs.openjdk.java.net/browse/JDK-8212233 -->
-                    <source>8</source> 
-                </configuration> 
+                    <failOnWarnings>false</failOnWarnings>
+                    <failOnError>true</failOnError>
+                </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
@@ -193,6 +189,7 @@
                 <configuration>
                     <publishingServerId>central</publishingServerId>
                     <centralSnapshotsUrl>https://central.sonatype.com/repository/maven-snapshots/</centralSnapshotsUrl>
+                    <autoPublish>true</autoPublish>
                 </configuration>
             </plugin>
             <plugin>
@@ -242,14 +239,7 @@
     </build>
     <profiles>
         <profile>
-            <id>release-sign-artifacts</id>
-            <activation>
-                <property>
-                    <!-- Automatically set to true on mvn release:perform -->
-                    <name>performRelease</name>
-                    <value>true</value>
-                </property>
-            </activation>
+            <id>maven-central-release</id>
             <build>
                 <plugins>
                     <plugin>
